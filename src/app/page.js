@@ -8,6 +8,7 @@ export default function Home(props) {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
+      // Your code that references `window` goes here
     try {
       const data = JSON.parse(window.sessionStorage.getItem("userData"));
       if (!data.hasOwnProperty("email")) setModalOpen(true);
