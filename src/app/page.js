@@ -7,6 +7,7 @@ export default function Home(props) {
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
     try {
       const data = JSON.parse(window.sessionStorage.getItem("userData"));
       if (!data.hasOwnProperty("email")) setModalOpen(true);
@@ -14,6 +15,7 @@ export default function Home(props) {
       setModalOpen(true);
       console.log("Check email err : ", e);
     }
+  }
   }, []);
   return (
     <>
