@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios'
-import LoginWithGoogle from './LoginWithGoogle'
+// import LoginWithGoogle from './LoginWithGoogle'
 import { PAYMENT_API } from '../config';
 
 async function tryForFree(email){
@@ -47,7 +47,7 @@ const Login = ({ modalOpen = false, setModalOpen }) => {
           <h3 className='text-lg font-bold'>Login</h3>
           <p className='py-4'>
           <div align='center'>
-          <LoginWithGoogle setModalOpen={setModalOpen} tryForFree={tryForFree}/>
+          {/* <LoginWithGoogle setModalOpen={setModalOpen} tryForFree={tryForFree}/> */}
           </div>
           </p>
         </div>
