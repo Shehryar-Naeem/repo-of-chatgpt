@@ -12,7 +12,7 @@ import EditPopup from "./NewComponents/IconsPopup/EditIPrompt";
 // import axios from "axios";
 const imageModels = ["DALL·E", "OpenJourney"];
 import ImageComp from "./imageComp";
-import PersonImg from '../assets/person.Png'
+import PersonImg from '../assets/person.png'
 /**
  * A chat message component that displays a message with a timestamp and an icon.
  *
