@@ -24,7 +24,7 @@ const menyLinkStyle = {
  */
 const NavBar = () => {
   const [open, setOpen] = useState(false);
-  //   const [modalOpen, setModalOpen] = useState(false);
+    // const [modalOpen, setModalOpen] = useState(false);
 
   const [isOpenNew, setisOpenNew] = useState(false); //new top bar button
   const [isOpenTopic, setisOpenTopic] = useState(false); //topic top bar button
@@ -71,14 +71,22 @@ useOutsideNav(wrapperRef);
 
 
   function handleResize() {
+    if(typeof window !== 'undefined'){
+
     window.innerWidth <= 720 ? setOpen(false) : setOpen(true);
+    }
   }
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
+    if(typeof window !== 'undefined'){
 
+    window.addEventListener("resize", handleResize);
+    }
     return () => {
+    if(typeof window !== 'undefined'){
+
       window.removeEventListener("resize", handleResize);
+    }
     };
   }, []);
 

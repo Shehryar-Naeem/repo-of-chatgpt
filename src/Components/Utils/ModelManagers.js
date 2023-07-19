@@ -7,10 +7,13 @@ import { callOjFromServer } from './callOjFromServer';
 import { callSearchGPT } from './callSearchGPT'
 
 // commnon configs
-const key = process.env.REACT_APP_OPEN_AI_KEY
-const userData = JSON.parse(window.localStorage.getItem('userData'));
-const email = userData && userData.hasOwnProperty('email') ? userData.email : null
 
+const key = process.env.REACT_APP_OPEN_AI_KEY
+let email;
+if(typeof window !== 'undefined'){
+const userData = JSON.parse(window.localStorage.getItem('userData'));
+ email = userData && userData.hasOwnProperty('email') ? userData.email : null
+}
 
 const modelsManager = async (aiModel, cleanPrompt, updateMessage, setThinking) => {
   try{

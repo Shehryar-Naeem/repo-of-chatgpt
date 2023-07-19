@@ -3,7 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { checkApiKey } from './Utils/chekKey';
 
 const Setting = ({ modalOpen, setModalOpen }) => {
+  let apiKey;
+  if(typeof window !== 'undefined'){
+  
   const apiKey = window.localStorage.getItem('api-key');
+  }
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [input, setInput] = useState('');
@@ -16,7 +20,10 @@ const Setting = ({ modalOpen, setModalOpen }) => {
 
     await checkApiKey(keys)
       .then(() => {
+    if(typeof window !== 'undefined'){
+
         window.localStorage.setItem('api-key', keys);
+    }
         console.log('works');
         setModalOpen(false);
       })
@@ -29,7 +36,10 @@ const Setting = ({ modalOpen, setModalOpen }) => {
   };
 
   const removeApiKey = () => {
+    if(typeof window !== 'undefined'){
+
     window.localStorage.removeItem('api-key');
+    }
     setInput('');
   };
 

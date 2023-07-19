@@ -12,6 +12,8 @@ import { useState } from 'react';
  */
 const useLocalStorage = (key, initialValue) => {
   const [storedValue, setStoredValue] = useState(() => {
+    if(typeof window !== 'undefined'){
+
     try {
       const item = window.localStorage.getItem(key);
       return item ? JSON.parse(item) : initialValue;
@@ -19,6 +21,8 @@ const useLocalStorage = (key, initialValue) => {
       console.log(error);
       return initialValue;
     }
+  }
+
   });
 
   const setValue = (value) => {
@@ -27,15 +31,20 @@ const useLocalStorage = (key, initialValue) => {
         value instanceof Function ? value(storedValue) : value;
 
       setStoredValue(valueToStore);
+      if(typeof window !== 'undefined'){
 
       window.localStorage.setItem(key, JSON.stringify(valueToStore));
+      }
     } catch (error) {
       console.log(error);
     }
   };
 
   const removeValue = (value) => {
+    if(typeof window !== 'undefined'){
+
     window.localStorage.removeItem(value);
+    }
   };
   return [storedValue, setValue, removeValue];
 };

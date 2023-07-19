@@ -7,11 +7,15 @@ import * as EmailValidator from 'email-validator'
 const options = ['1 month - 20$', '1 year - 120$']
 
 const Payment = () => {
-  const userData = JSON.parse(window.localStorage.getItem('userData'));
-  const email = userData && userData.hasOwnProperty('email') ? userData.email : null
-  if(!EmailValidator.validate(email))
-    alert("Wrong email, please relogin")
+  let email; // Declare the email variable outside the block
 
+  if (typeof window !== 'undefined') {
+    const userData = JSON.parse(window.localStorage.getItem('userData'));
+    email = userData && userData.hasOwnProperty('email') ? userData?.email : null;
+    
+    if (!EmailValidator.validate(email))
+      alert("Wrong email, please relogin");
+  }
   const [selected, setSelected] = useState(options[0]);
   return (
     <div className='chatview' style={{ width: "100%" }}>

@@ -16,10 +16,12 @@ const useDarkMode = () => {
   const isEnabled = typeof enabledState === 'undefined' && enabled;
 
   useEffect(() => {
+    if(typeof window !== 'undefined'){
     
     const className = 'dark';
     const bodyClass = window.document.body.classList;
     isEnabled ? bodyClass.add(className) : bodyClass.remove(className);
+    }
   }, [enabled, isEnabled]);
 
   return [enabled, setEnabled];
