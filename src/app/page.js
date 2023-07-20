@@ -18,12 +18,13 @@ export default function Home(props) {
   }
   }, []);
   return (
-    <>
- 
-    <Login modalOpen={modalOpen} setModalOpen={setModalOpen} />
-    
-     
-      <ChatView {...props} />
-    </>
+    <div>
+      {typeof window !== 'undefined' && (
+        <>
+          <Login modalOpen={modalOpen} setModalOpen={setModalOpen} />
+          <ChatView {...props} />
+        </>
+      )}
+    </div>
   );
 }
