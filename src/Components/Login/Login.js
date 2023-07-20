@@ -47,7 +47,7 @@ const Login = ({ modalOpen = false, setModalOpen }) => {
           <h3 className='text-lg font-bold'>Login</h3>
           <p className='py-4'>
           <div align='center'>
-          <LoginWithGoogle setModalOpen={setModalOpen} tryForFree={tryForFree}/>
+          {/* <LoginWithGoogle setModalOpen={setModalOpen} tryForFree={tryForFree}/> */}
           </div>
           </p>
         </div>
