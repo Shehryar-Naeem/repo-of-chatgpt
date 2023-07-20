@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { GoogleLogin } from 'react-google-login';
+// import { GoogleLogin } from 'react-google-login';
 import { gapi } from 'gapi-script';
 
 const clientId = process.env.REACT_APP_GOOGLE_OATH_CLIENT_ID
@@ -42,14 +42,15 @@ function LoginWithGoogle(props) {
       !isLogin
       ?
       (
-        <GoogleLogin
-          clientId={clientId}
-          buttonText="Sign in with Google"
-          onSuccess={onSuccess}
-          onFailure={onFailure}
-          cookiePolicy={'single_host_origin'}
-          isSignedIn={true}
-        />
+        // <GoogleLogin
+        //   clientId={clientId}
+        //   buttonText="Sign in with Google"
+        //   onSuccess={onSuccess}
+        //   onFailure={onFailure}
+        //   cookiePolicy={'single_host_origin'}
+        //   isSignedIn={true}
+        // />
+        ""
         
       )
       :

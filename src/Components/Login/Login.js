@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios'
-import LoginWithGoogle from './LoginWithGoogle'
+// import LoginWithGoogle from './LoginWithGoogle'
 import { PAYMENT_API } from '../config';
 
 async function tryForFree(email){
